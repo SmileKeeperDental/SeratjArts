@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeratjArts | Exclusive Online Paintings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        seratjNavy: '#1E367B',
+                        seratjTeal: '#189CB3',
+                        seratjGold: '#ECA825',
+                        seratjDark: '#0B132B',
+                        seratjLight: '#F4F7F6'
+                    },
+                    fontFamily: {
+                        heading: ['"Cinzel"', 'serif'], // Switched to a more elegant, high-end gallery font
+                        body: ['"Montserrat"', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #F4F7F6; }
+        h1, h2, h3, .heading-font { font-family: 'Cinzel', serif; }
+        
+        /* Custom Gradient for text */
+        .text-gradient {
+            background: linear-gradient(135deg, #1E367B 0%, #189CB3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Image hover zoom effect */
+        .img-zoom-container { overflow: hidden; }
+        .img-zoom-container img { transition: transform 0.6s ease; }
+        .group:hover .img-zoom-container img { transform: scale(1.1); }
+        
+        /* Glassmorphism for floating elements */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased selection:bg-seratjTeal selection:text-white">
+
+    <nav class="fixed w-full z-50 glass-panel shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <a href="#home" class="flex-shrink-0 flex items-center transform transition hover:scale-105">
+                    <img class="h-16 w-auto" src="Gemini_Generated_Image_h8nxinh8nxinh8nx.png" alt="SeratjArts Logo">
+                </a>
+                
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="#home" class="text-seratjDark hover:text-seratjTeal font-medium tracking-wide transition-colors">Home</a>
+                    <a href="#experience" class="text-seratjDark hover:text-seratjTeal font-medium tracking-wide transition-colors">Experience</a>
+                    <a href="#gallery" class="text-seratjDark hover:text-seratjTeal font-medium tracking-wide transition-colors">Gallery</a>
+                    <a href="#about" class="text-seratjDark hover:text-seratjTeal font-medium tracking-wide transition-colors">About Sera</a>
+                </div>
+
+                <div class="flex items-center">
+                    <button onclick="toggleCart()" class="relative group p-2">
+                        <div class="bg-seratjNavy group-hover:bg-seratjTeal transition-colors rounded-full h-12 w-12 flex items-center justify-center shadow-lg">
+                            <i class="fas fa-shopping-bag text-white text-lg"></i>
+                        </div>
+                        <span id="cart-count" class="absolute top-0 right-0 bg-seratjGold text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center border-2 border-white shadow-md transform transition group-hover:scale-110">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-seratjTeal opacity-10 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-seratjNavy opacity-10 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in-up">
+                    <span class="text-seratjGold font-bold tracking-widest uppercase text-sm mb-4 block">Original Online Masterpieces</span>
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6 heading-font text-seratjDark">
+                        Redefining <br>
+                        <span class="text-gradient">Visual Elegance</span>
+                    </h1>
+                    <p class="text-lg text-gray-500 mb-8 max-w-lg leading-relaxed">
+                        Transform your space with exclusive, hand-crafted paintings designed to inspire. Explore the intersection of vibrant digital aesthetics and traditional canvas art.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#gallery" class="px-8 py-4 bg-seratjNavy text-white rounded-full font-medium tracking-wide shadow-lg hover:bg-seratjTeal hover:shadow-xl transition-all duration-300 text-center">
+                            Explore Collection
+                        </a>
+                        <a href="#about" class="px-8 py-4 bg-white text-seratjNavy border border-seratjNavy rounded-full font-medium tracking-wide shadow-sm hover:bg-gray-50 transition-all duration-300 text-center">
+                            Meet the Artist
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-seratjNavy/20 transform rotate-2 hover:rotate-0 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1000&q=80" alt="Abstract Art Gallery" class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl glass-panel">
+                        <p class="heading-font text-seratjNavy font-bold text-xl">100%</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Original Canvas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-seratjNavy relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center p-6 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                    <div class="w-16 h-16 mx-auto bg-seratjTeal rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-palette text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-white text-xl font-bold heading-font mb-3">Unique Creations</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">Every piece is exclusively crafted by Sera, ensuring your artwork is a one-of-a-kind statement piece.</p>
+                </div>
+                <div class="text-center p-6 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                    <div class="w-16 h-16 mx-auto bg-seratjGold rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-white text-xl font-bold heading-font mb-3">Authenticity Guarded</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">Each painting comes with a digitally verifiable certificate of authenticity directly from SeratjArts.</p>
+                </div>
+                <div class="text-center p-6 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                    <div class="w-16 h-16 mx-auto bg-seratjTeal rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fas fa-globe text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-white text-xl font-bold heading-font mb-3">Global Delivery</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">Premium, climate-controlled packaging ensuring your new masterpiece arrives safely anywhere in the world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 bg-seratjLight">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-seratjTeal font-bold tracking-widest uppercase text-sm mb-2 block">Curated Collection</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-seratjDark heading-font">Featured Artworks</h2>
+                <div class="mt-6 h-1 w-24 bg-gradient-to-r from-seratjNavy to-seratjTeal mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="product-grid">
+                
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="relative h-80 img-zoom-container bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=800&q=80" alt="Azure Dreams" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-seratjNavy text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            New Arrival
+                        </div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-seratjDark mb-1 heading-font group-hover:text-seratjTeal transition-colors">Azure Dreams</h3>
+                            <p class="text-gray-500 text-sm mb-4">Acrylic on Canvas • 24" x 36"</p>
+                        </div>
+                        <div class="flex justify-between items-end mt-6">
+                            <div>
+                                <span class="text-xs text-gray-400 uppercase tracking-wider block mb-1">Price</span>
+                                <span class="text-3xl font-bold text-seratjNavy">$450</span>
+                            </div>
+                            <button onclick="addToCart('Azure Dreams', 450, 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=200&q=80')" class="w-12 h-12 rounded-full bg-seratjLight text-seratjNavy hover:bg-seratjNavy hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="relative h-80 img-zoom-container bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=80" alt="Golden Horizons" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-seratjDark mb-1 heading-font group-hover:text-seratjTeal transition-colors">Golden Horizons</h3>
+                            <p class="text-gray-500 text-sm mb-4">Mixed Media • 30" x 30"</p>
+                        </div>
+                        <div class="flex justify-between items-end mt-6">
+                            <div>
+                                <span class="text-xs text-gray-400 uppercase tracking-wider block mb-1">Price</span>
+                                <span class="text-3xl font-bold text-seratjNavy">$580</span>
+                            </div>
+                            <button onclick="addToCart('Golden Horizons', 580, 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=200&q=80')" class="w-12 h-12 rounded-full bg-seratjLight text-seratjNavy hover:bg-seratjNavy hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="relative h-80 img-zoom-container bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" alt="Creative Chaos" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-seratjDark mb-1 heading-font group-hover:text-seratjTeal transition-colors">Midnight Motion</h3>
+                            <p class="text-gray-500 text-sm mb-4">Oil on Canvas • 18" x 24"</p>
+                        </div>
+                        <div class="flex justify-between items-end mt-6">
+                            <div>
+                                <span class="text-xs text-gray-400 uppercase tracking-wider block mb-1">Price</span>
+                                <span class="text-3xl font-bold text-seratjNavy">$320</span>
+                            </div>
+                            <button onclick="addToCart('Midnight Motion', 320, 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=200&q=80')" class="w-12 h-12 rounded-full bg-seratjLight text-seratjNavy hover:bg-seratjNavy hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="w-full lg:w-1/2 relative">
+                    <div class="absolute inset-0 bg-seratjGold rounded-3xl transform translate-x-4 translate-y-4 -z-10 opacity-30"></div>
+                    <img src="sera.png" alt="Sera in her studio" class="w-full rounded-3xl shadow-xl object-cover h-[500px]">
+                    <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl hidden md:block">
+                        <img class="h-20 w-auto" src="Gemini_Generated_Image_h8nxinh8nxinh8nx.png" alt="SeratjArts Logo">
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2">
+                    <span class="text-seratjTeal font-bold tracking-widest uppercase text-sm mb-2 block">The Artist Behind the Canvas</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-seratjDark heading-font mb-6">Meet Sera</h2>
+                    <div class="w-16 h-1 bg-seratjGold mb-8"></div>
+                    
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        Sera is the creative force behind SeratjArts. With a profound passion for blending the precision of digital design with the raw, emotional power of traditional brushstrokes, she creates artworks that are both modern and timeless.
+                    </p>
+                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                        Inspired by the rich hues of deep oceans and twilight skies—reflected in her signature navy, teal, and gold color palette—Sera's mission is to bring museum-quality elegance directly into the homes of art lovers worldwide. Every piece in the SeratjArts collection is a testament to her dedication to the craft.
+                    </p>
+                    
+                    <div class="flex items-center space-x-4">
+                        <img src="https://ui-avatars.com/api/?name=Sera&background=1E367B&color=fff&rounded=true&font-size=0.33" alt="Sera Signature" class="w-12 h-12 rounded-full border-2 border-seratjGold">
+                        <div>
+                            <p class="font-bold text-seratjDark heading-font text-xl">Sera</p>
+                            <p class="text-sm text-seratjTeal font-semibold">Founder & Lead Artist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="cart-overlay" class="fixed inset-0 bg-seratjDark/60 backdrop-blur-sm z-40 hidden transition-opacity" onclick="toggleCart()"></div>
+
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-full md:w-[28rem] bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col rounded-l-2xl">
+        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-white rounded-tl-2xl">
+            <h2 class="text-2xl font-bold heading-font text-seratjDark">Your Gallery Cart</h2>
+            <button onclick="toggleCart()" class="text-gray-400 hover:text-seratjNavy bg-gray-100 hover:bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-6 bg-gray-50">
+            <div class="flex flex-col items-center justify-center h-full text-gray-400 space-y-4">
+                <i class="fas fa-shopping-bag text-5xl opacity-20"></i>
+                <p>Your cart is currently empty.</p>
+            </div>
+        </div>
+        
+        <div class="p-8 border-t border-gray-100 bg-white">
+            <div class="flex justify-between text-xl font-bold text-seratjDark mb-6">
+                <span>Subtotal:</span>
+                <span id="cart-total">$0</span>
+            </div>
+            <button onclick="checkout()" class="w-full bg-seratjNavy text-white py-4 rounded-xl font-semibold tracking-wide hover:bg-seratjTeal transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-300">
+                Secure Checkout
+            </button>
+            <p class="text-center text-xs text-gray-400 mt-4"><i class="fas fa-lock mr-1"></i> Payments are secure and encrypted</p>
+        </div>
+    </div>
+
+    <footer class="bg-seratjDark text-white pt-16 pb-8 border-t-4 border-seratjTeal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <img class="h-12 w-auto brightness-0 invert mb-6" src="Gemini_Generated_Image_h8nxinh8nxinh8nx.png" alt="SeratjArts Logo">
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Elevating spaces with exclusive, hand-crafted paintings. Experience the intersection of digital precision and traditional artistry.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold heading-font mb-6 text-seratjGold">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#home" class="hover:text-seratjTeal transition-colors">Home</a></li>
+                        <li><a href="#gallery" class="hover:text-seratjTeal transition-colors">Gallery</a></li>
+                        <li><a href="#experience" class="hover:text-seratjTeal transition-colors">The Experience</a></li>
+                        <li><a href="#about" class="hover:text-seratjTeal transition-colors">About Sera</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold heading-font mb-6 text-seratjGold">Connect</h4>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-seratjTeal transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-seratjTeal transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-seratjTeal transition-colors"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <p class="text-gray-400 text-sm">Subscribe to our newsletter for new arrivals.</p>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-500 text-xs">
+                &copy; 2026 SeratjArts. All rights reserved. Designed for elegance.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalElement = document.getElementById('cart-total');
+        const cartCountElement = document.getElementById('cart-count');
+
+        function toggleCart() {
+            if (cartSidebar.classList.contains('translate-x-full')) {
+                cartSidebar.classList.remove('translate-x-full');
+                cartOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when cart is open
+            } else {
+                cartSidebar.classList.add('translate-x-full');
+                cartOverlay.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function addToCart(name, price, image) {
+            cart.push({ name, price, image });
+            updateCartUI();
+            
+            if (cartSidebar.classList.contains('translate-x-full')) {
+                toggleCart();
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            cartCountElement.innerText = cart.length;
+            
+            // Animation scale pop on cart badge
+            cartCountElement.classList.add('scale-125');
+            setTimeout(() => cartCountElement.classList.remove('scale-125'), 200);
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-full text-gray-400 space-y-4 pt-10">
+                        <i class="fas fa-shopping-bag text-5xl opacity-20"></i>
+                        <p>Your cart is currently empty.</p>
+                    </div>`;
+                cartTotalElement.innerText = '$0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                html += `
+                    <div class="flex items-center space-x-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100 transform transition hover:-translate-y-1">
+                        <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-seratjDark text-sm heading-font">${item.name}</h4>
+                            <p class="text-seratjTeal font-bold mt-1">$${item.price}</p>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-600 bg-red-50 hover:bg-red-100 w-8 h-8 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fas fa-trash-alt text-sm"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            cartItemsContainer.innerHTML = html;
+            cartTotalElement.innerText = '$' + total;
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your gallery cart is empty. Please select an artwork first.");
+                return;
+            }
+            alert(`Thank you for your order!\n\nTotal: $${cart.reduce((sum, item) => sum + item.price, 0)}\n\nSera will begin preparing your artwork for shipment soon.`);
+            cart = [];
+            updateCartUI();
+            toggleCart();
+        }
+    </script>
+</body>
+</html>
